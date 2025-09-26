@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  background-color: #fff; /* or your preferred color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  padding: 0 15px;
+  font-weight: 500;
+}
+
+.activeLink {
+  color: #1d4ed8; /* blue for active link */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.drawerLinks {
+  display: flex;
+  flex-direction: column; /* drawer links stacked vertically */
+  gap: 10px;
+}

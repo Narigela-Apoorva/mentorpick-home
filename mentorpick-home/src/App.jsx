@@ -1,17 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+
+import { Navbar } from './Components/Navbar/Navbar';
 import HomePage from './Components/Home/HomePage';
+import CoursesPage from './Components/Courses/CoursesPage';
+
 
 function App() {
-
   return (
-    <Router>
+    <>
+      <Navbar />
       <Routes>
-         <Route path='/' element={<HomePage/>}/>
+        <Route path="/" element={<HomePage />} />
+        {/* add your other routes */}
+        <Route path='/Courses' element={<CoursesPage/>}/>
+        
       </Routes>
-    </Router>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
