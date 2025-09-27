@@ -6,27 +6,28 @@ import {
   ScrollArea,
   Text,
   Divider,
-} from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { NavLink, Link } from 'react-router-dom';
-import classes from './Navbar.module.css';
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { NavLink, Link } from "react-router-dom";
+import classes from "./Navbar.module.css";
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/Courses', label: 'Courses' },
-  { to: '/Events', label: 'Events' },
-  { to: '/Testimonials', label: 'Testimonials' },
+  { to: "/", label: "Home" },
+  { to: "/Courses", label: "Courses" },
+  { to: "/Events", label: "Events" },
+  { to: "/Testimonals", label: "Testimonals" },
 ];
 
 export function Navbar() {
-  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
+    useDisclosure(false);
 
   const navItems = navLinks.map((link) => (
     <NavLink
       key={link.to}
       to={link.to}
       className={({ isActive }) =>
-        `${classes.link} ${isActive ? classes.activeLink : ''}`
+        `${classes.link} ${isActive ? classes.activeLink : ""}`
       }
       onClick={closeDrawer}
     >
@@ -36,19 +37,41 @@ export function Navbar() {
 
   return (
     <Box>
-      <header className={classes.header} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 1rem', height: '60px' }}>
+      <header
+        className={classes.header}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 1rem",
+          height: "60px",
+        }}
+      >
         {/* Logo / Site Name */}
-        <Text component={Link} to="/" className={classes.logo} style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
-          Being <span>Zero</span>
+        <Text
+          component={Link}
+          to="/"
+          className={classes.logo}
+          style={{ fontWeight: "bold", fontSize: "1.5rem" }}
+        >
+          Mentor<span>Pick</span>
         </Text>
 
         {/* Desktop Links */}
-        <Group spacing="md" className={classes.desktopNav} style={{ display: 'flex' }}>
+        <Group
+          spacing="md"
+          className={classes.desktopNav}
+          style={{ display: "flex" }}
+        >
           {navItems}
         </Group>
 
         {/* Burger Menu for mobile */}
-        <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.mobileBurger} />
+        <Burger
+          opened={drawerOpened}
+          onClick={toggleDrawer}
+          className={classes.mobileBurger}
+        />
       </header>
     </Box>
   );
